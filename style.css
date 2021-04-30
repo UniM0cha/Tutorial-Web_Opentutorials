@@ -24,7 +24,7 @@ h1 {
   padding: 20px;
   padding-left: 32px;
 }
-@media(max-width: 600px) {
+@media(max-width: 700px) {
   #grid {
     display: block;
   }

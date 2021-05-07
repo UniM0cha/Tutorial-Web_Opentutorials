@@ -65,7 +65,7 @@ var app = http.createServer(function(request,response){
         var title = 'WEB - create';
         var list = templateList(filelist);
         var template = templateHTML(title, list, `
-        <form action="http://localhost/process_create" method="POST">
+        <form action="http://localhost/create_process" method="POST">
           <p><input type="text" name="title" placeholder="title"></p>
           <p>
             <textarea name="description" id="" cols="30" rows="10" placeholder="description"></textarea>
@@ -78,6 +78,20 @@ var app = http.createServer(function(request,response){
         response.writeHead(200);
         response.end(template);
       })
+    }
+    else if (pathname === '/create_process'){
+      var body = '';
+      //request 요청할 때 웹브라우저가 보낸 정보들
+      //response 우리가 브라우저에 응답하는 정보
+      request.on('data', function(data){
+        //post로 전송되는 데이터가 많을 경우를 대비해서
+        
+      });
+      request.on('end', function(){
+
+      });
+      response.writeHead(200);
+      response.end('success');
     }
     //정상적인 디렉터리를 요청하지 않음 = 404 에러
     else {

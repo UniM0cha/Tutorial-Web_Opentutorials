@@ -29,6 +29,8 @@ function templateList(filelist){
   return list;
 }
 
+//request : 요청할 때 웹브라우저가 보낸 정보
+//response : 응답할 때 서버가 웹브라우저에 보낼 정보
 var app = http.createServer(function(request,response){
     var _url = request.url;
     var queryData = url.parse(_url, true).query;

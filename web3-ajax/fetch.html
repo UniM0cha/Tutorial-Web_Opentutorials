@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <article>
+        </article>
+        <input type="button" value="fetch" onclick="       
+            fetch('css.html').then((response) => {
+                response.text().then((text) => {
+                    document.querySelector('article').innerHTML = text;
+                })
+            })
+
+            // fetch('css.html') : 웹브라우저야 css.html라는 파일을 서버에 요청해줘
+            // .then : 응답을 해주는데 시간이 걸림 그 시간동안 기다렸다가 콜백함수 실행 (비동기식 (asynchronous))
+
+            // fetch('css.html').then((response) => {
+            //     console.log(response.status);
+            //     if(response.status == '404') {
+            //         alert('Not found');
+            //     }
+            // });
+            // console.log(1);
+            // console.log(2);
+        ">
+    </body>
+</html>

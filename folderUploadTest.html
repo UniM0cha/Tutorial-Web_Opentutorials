@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    'use strict';
+
+    function btnGetFolder(e) {
+      let input = document.createElement("input");                // input 태그를 하나 만든다.
+      input.type = 'file';                                        // 태그의 속성을 file로 정의
+      input.setAttribute('webkitdirectory', '');                  // webkitdirectory 속성을 지정하여 폴더를 업로드 할 수있도록 지정
+
+      input.onchange = (e) => {                       // input의 값이 변한다 = 파일을 불러온다
+        let files = e.target.files;
+        for (let element of files) {
+          console.log(element);
+          let reader = new FileReader();
+          reader.readAsText(element);
+        }
+      }
+      input.click();          // input 태그 실행
+    }
+
+    function btnGetFile(e) {
+      let input = document.createElement("input");                // input 태그를 하나 만든다.
+      input.type = 'file';                                        // 태그의 속성을 file로 정의
+      input.onchange = (e) => {                       // input의 값이 변한다 = 파일을 불러온다
+        let data = e.target.files;
+        console.log(data);
+      }
+      input.click();          // input 태그 실행
+    }
+
+    function getfolder(e) {
+      var files = e.target.files;
+      // console.log(files);
+      var path = files[0].webkitRelativePath;
+      // console.log(path);
+      var Folder = path.split("/");
+      // console.log(Folder);
+      alert(Folder[0]);
+    }
+  </script>
+
+  <input type="file" id="flup" onchange="getfolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory
+    multiple />
+  <input type="button" onclick="btnGetFolder(event)">
+  <input type="button" onclick="btnGetFile(event)">
+
+</body>
+
+</html>
